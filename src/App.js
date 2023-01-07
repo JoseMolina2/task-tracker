@@ -51,11 +51,7 @@ function App() {
       />
       {showAddTask && <AddTask addTask={addTask} />}
       {tasks.length > 0 ? (
-        <Tasks
-          tasks={tasks}
-          onDelete={deleteTask}
-          onToggleReminder={toggleReminder}
-        />
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
         "No tasks to show"
       )}
