@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 import { useState } from "react";
 
 function App() {
@@ -32,9 +33,18 @@ function App() {
     );
   };
 
+  //Add Task
+  const addTask = (task) => {
+    console.log(task);
+    const id = Math.floor(Math.random * 100) + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  };
+
   return (
     <div className="container">
       <Header title="Task Tracker" />
+      <AddTask addTask={addTask} />
       {tasks.length > 0 ? (
         <Tasks
           tasks={tasks}
